@@ -30,7 +30,15 @@ client.on('message', msg => {
 		.catch(console.error);
 	}
 
-	if (!msg.author.bot && (msg.channel.id !== toChannelID) && (msg.channel.id in fromChannelIDs)) {
+	if (!msg.author.bot && (msg.channel.id !== toChannelID) && (fromChannelIDs.includes(msg.channel.id))) {
+		console.log("Redirect Message Found!");
+		console.log("Message ID = " + msg.channel.id);
+		console.log("fromChannelIDs = " + fromChannelIDs);
+		/*console.log("Booleans:");
+		console.log("Author? => " + !msg.author.bot);
+		console.log("toChannelId = msg.id? => " + (msg.channel.id !== toChannelID));
+		console.log("fromChannelIDs.includes(msg.channel.id)? => " + fromChannelIDs.includes(msg.channel.id));
+		*/
 		msg.attachments.forEach(redirectAttachments);
 		msg.embeds.forEach(redirectEmbeds);
 	}
