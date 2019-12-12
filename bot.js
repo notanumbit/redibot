@@ -5,13 +5,13 @@ client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!`);
 });
 
-var toChannelID = "654430456435179540"; // Bara-talk ID
+//var toChannelID = "654430456435179540"; // Bara-talk ID
 
-//var toChannelID = "654441920277512202";
+var toChannelID = "654441920277512202";
 
-var fromChannelIDs = ["351822749557063681", "536650499898998819", "282618520397938689"];
+//var fromChannelIDs = ["351822749557063681", "536650499898998819", "282618520397938689"];
 
-//var fromChannelIDs = ["654441905643454483"]; // Private Server From Channel
+var fromChannelIDs = ["654441905643454483"]; // Private Server From Channel
 
 
 client.on('message', msg => {
