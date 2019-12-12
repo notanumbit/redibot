@@ -16,8 +16,6 @@ var fromChannelIDs = ["351822749557063681", "536650499898998819", "2826185203979
 
 client.on('message', msg => {
 
-	console.log(msg.channel.id);
-
 	const toChannel = client.channels.get(toChannelID);
 
 	function redirectAttachments(value, key, map) {
@@ -32,7 +30,7 @@ client.on('message', msg => {
 		.catch(console.error);
 	}
 
-	if (!msg.author.bot && msg.channel.id !== toChannelID && fromChannelIDs.includes(msg.channel.id)) {
+	if (!msg.author.bot && (msg.channel.id !== toChannelID) && (msg.channel.id in fromChannelIDs)) {
 		msg.attachments.forEach(redirectAttachments);
 		msg.embeds.forEach(redirectEmbeds);
 	}
